@@ -344,6 +344,7 @@
                     const prayTimes = new PrayerTimes.PrayerManager('ISNA')
                     let lat = document.getElementById("lat").value;
                     let lng = document.getElementById("long").value;
+		    var time = document.getElementById("time").value;
                     let times = prayTimes.getTimes(new Date(), [lat, lng], time, 0,'12h') // Get prayers times for "today" at lat: 43, long: -80 with -5 timezone
                     
                             var fajr = times[1].formatted;
