@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notion Prayer Times</title>
+    <style>
+        .web{
+            display: flex;
+            justify-content: center;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        .show {
+            opacity: 100;
+        }
+        .main {
+            aspect-ratio: 200/130;
+            width: 90vw;
+            position: absolute;
+            background: linear-gradient(318deg,#ff7b27,#133074,#d22f2f,#ff9a41);
+            background-size: 240% 240%;
+            animation: gradient-animation 5s ease infinite;
+            
+
+            
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            color:azure;
+            font-family: 'Poppins', sans-serif;            
+        }
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+            }
+        .login {
+            position: absolute;
+            aspect-ratio: 200/130;
+            width: 90vw;
+            
+            background: linear-gradient(318deg,#ff7b27,#133074,#d22f2f,#ff9a41);
+            background-size: 240% 240%;
+            animation: gradient-animation 5s ease infinite;
+            
+
+            
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            color:azure;
+            font-family: 'Poppins', sans-serif;      
+        }
+    
+        #title {
+           text-align: center;
+        }
+        #button {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;            
+            font-weight: 50;  
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            background: #5d6ef0;
+            border-radius: 999px;
+            box-shadow: #395b92 0 10px 20px -10px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            opacity: 1;
+            outline: 0 solid transparent;
+            padding: 8px 18px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: fit-content;
+            word-break: break-word;
+            border: 0;
+            
+        }
+        .b {
+            text-align: center;
+        }
+        .fajr {
+            width: 20%;
+            height: 30%;
+            background: rgb(140, 140, 140,0.5);
+            opacity: 1;
+            
+            position:absolute;
+            left: 5%;
+            top: 25%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius:15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+            
+        }
+        .dhuhr {
+            width: 20%;
+            height: 30%;
+            background: rgb(140, 140, 140,0.5);
+            opacity: 1;
+            
+            position:absolute;
+            left: 40%;
+            top:25%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius:15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .asr {
+            width: 20%;
+            height: 30%;
+            background: rgb(140, 140, 140,0.5);
+            opacity: 1;
+            
+            position:absolute;
+            left: 75%;
+            top: 25%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius:15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .maghrib {
+            width: 20%;
+            height: 30%;
+            background: rgb(140, 140, 140,0.5);
+            opacity: 1;
+            
+            position:absolute;
+            left: 20%;
+            top:65%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius:15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .isha {
+            width: 20%;
+            height: 30%;
+            background: rgb(140, 140, 140,0.5);
+            opacity: 1;
+            
+            position:absolute;
+            left: 60%;
+            top:65%;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius:15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #fTitle {
+            position: absolute;
+            font-size:150%;
+            top: -0.5vw;
+        }
+        #dTitle {
+            position: absolute;
+            font-size:150%;
+            top: -0.5vw;
+            
+        }
+        #aTitle {
+            position: absolute;
+            font-size:150%;
+            top: -0.5vw;
+            
+        }
+        #mTitle {
+            position: absolute;
+            font-size:150%;
+            top: -0.5vw;
+            
+        }
+        #iTitle {
+            position: absolute;
+            font-size:150%;
+            top: -0.5vw;
+            
+        }
+        #fajrTime {
+            position: absolute;
+            font-size:200%;
+            
+            
+            
+            
+        }
+        #dhuhrTime {
+            position: absolute;
+            font-size:200%;
+            
+            
+        }
+        #asrTime {
+            position: absolute;
+            font-size:200%;
+            
+            
+        }
+        #maghribTime {
+            position: absolute;
+            font-size:200%;
+
+            
+        }
+        #ishaTime {
+            position: absolute;
+            font-size:200%;
+            
+        }
+        input[type=text] {
+        
+        padding:10px;
+        border:0;
+        background: rgb(140, 140, 140,0.5);
+        box-shadow:0 0 15px 4px rgba(255, 255, 255, 0.3);
+        border-radius: 5%;
+        }
+        ::placeholder {
+            text-align: center;
+            color:azure;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 50;  
+            
+        }
+        form{
+            text-align: center;
+            align-content: center;
+            font-family: 'Poppins', sans-serif;  
+
+        }
+        #titlew {
+           text-align: center;
+           margin-top: 15%;
+           text-align: center;
+        }
+        input {
+            color:azure;
+        }
+        p {
+            text-align: center;
+        }
+
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/prayer-times.js@1.6.9/dist/index.min.js"></script>
+    <script type="text/javascript">
+        function getPrayerTimes() {
+			        var latitude = document.getElementById("lat").value;
+                    var longitude = document.getElementById("long").value;
+                    var time = document.getElementById("time").value;
+                    var div = document.getElementById("login");
+                    div.style.transition = "opacity 1s ease-in-out";
+                    div.style.opacity = 0;
+                    setTimeout(function() {
+                    div.parentNode.removeChild(div);
+                    }, 1000);
+
+
+                    const prayTimes = new PrayerTimes.PrayerManager('ISNA')
+                    let lat = document.getElementById("lat").value;
+                    let lng = document.getElementById("long").value;
+                    let times = prayTimes.getTimes(new Date(), [lat, lng], time, 0,'12h') // Get prayers times for "today" at lat: 43, long: -80 with -5 timezone
+                    console.log('Sunrise : ', times.find(t => t.name === "sunrise"))
+                    
+                            var fajr = times[1].formatted;
+                            var dhuhr = times[3].formatted;
+                            var asr = times[4].formatted;
+                            var maghrib = times[5].formatted;
+                            var isha = (times.find(t => t.name === "isha")).formatted;
+                            document.getElementById("fajrTime").innerHTML = fajr;
+                            document.getElementById("dhuhrTime").innerHTML = dhuhr;
+                            document.getElementById("asrTime").innerHTML = asr;
+                            document.getElementById("maghribTime").innerHTML = maghrib;
+                            document.getElementById("ishaTime").innerHTML = isha;
+                }
+             
+        
+    </script>
+    
+    <script>
+      const prayTimes = new PrayerTimes.PrayerManager('MWL')
+      let lat = 43
+      let lng = -80
+      let times = prayTimes.getTimes(new Date(), [lat, lng], -5) // Get prayers times for "today" at lat: 43, long: -80 with -5 timezone
+      console.log('Sunrise : ', times.find(t => t.name === "sunrise"))
+      // OR
+      console.log('Sunrise : ', times[2])
+    </script> 
+</head>
+
+
+<body>
+
+    <div class = "web"> 
+    <div class = "main"> 
+
+    <h1 id = "title" >athantimes.</h1>
+
+    
+
+    <div class = "fajr"> 
+    <p id="fTitle">fajr </p>
+    <span id="fajrTime"></span>
+    </div>
+    
+    <div class = "dhuhr"> 
+    <p id="dTitle">dhuhr </p>
+    <p id="dhuhrTime"></p>
+    </div>
+
+    <div class = "asr"> 
+    <p id="aTitle">asr </p>
+    <p id="asrTime"></p>
+    </div>
+
+    <div class = "maghrib"> 
+    <p id="mTitle">maghrib </p>
+    <p id="maghribTime"></p>
+    </div>
+
+    <div class = "isha"> 
+    <p id="iTitle">isha </p>
+    <p id="ishaTime"></p>
+    </div>
+
+
+    </div>
+
+    <div class = "login" id = "login">
+
+        <h1 id = "titlew"> welcome.</h1>
+        <form>
+			<input type="text" id="lat" placeholder="latitude"><br><br>
+            <input type="text" id="long" placeholder="longitude"><br><br>
+            <input type="text" id="time" placeholder="hours from UTC"><br><br>
+			<input type="button" id = "button" value="Submit" onclick="getPrayerTimes()">
+        </form>
+
+
+
+
+    </div>
+
+    </div>
+
+</body>
+
+
+</html>
