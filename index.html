@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Notion Prayer Times</title>
+    <title>Islamic Prayer Times</title>
     <style>
         .web{
             display: flex;
@@ -291,27 +291,60 @@
         p {
             text-align: center;
         }
+        .loading {
+            position: absolute;
+            aspect-ratio: 200/130;
+            width: 90vw;
+            
+            background: linear-gradient(318deg,#ff7b27,#133074,#d22f2f,#ff9a41);
+            background-size: 240% 240%;
+            animation: gradient-animation 5s ease infinite;
+            
 
-      </style>
-      <script src="https://cdn.jsdelivr.net/npm/prayer-times.js@1.6.9/dist/index.min.js"></script>
-    <script type="text/javascript">
+            
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            color:azure;
+            font-family: 'Poppins', sans-serif; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;     
+        }
+
+        .load {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        </style>
+
+        <script src="https://cdn.jsdelivr.net/npm/prayer-times.js@1.6.9/dist/index.min.js"></script>
+        <script type="text/javascript">
+        var latitude = document.getElementById("lat").value;
+        var longitude = document.getElementById("long").value;
+        var time = document.getElementById("time").value;
+        var div = document.getElementById("login");
+        var load = document.getElementById("loading");
         function getPrayerTimes() {
-			        var latitude = document.getElementById("lat").value;
-                    var longitude = document.getElementById("long").value;
-                    var time = document.getElementById("time").value;
-                    var div = document.getElementById("login");
-                    div.style.transition = "opacity 1s ease-in-out";
-                    div.style.opacity = 0;
-                    setTimeout(function() {
-                    div.parentNode.removeChild(div);
-                    }, 1000);
-
-
+                    repeat = setInterval(function() {
                     const prayTimes = new PrayerTimes.PrayerManager('ISNA')
                     let lat = document.getElementById("lat").value;
                     let lng = document.getElementById("long").value;
                     let times = prayTimes.getTimes(new Date(), [lat, lng], time, 0,'12h') // Get prayers times for "today" at lat: 43, long: -80 with -5 timezone
-                    console.log('Sunrise : ', times.find(t => t.name === "sunrise"))
                     
                             var fajr = times[1].formatted;
                             var dhuhr = times[3].formatted;
@@ -323,20 +356,24 @@
                             document.getElementById("asrTime").innerHTML = asr;
                             document.getElementById("maghribTime").innerHTML = maghrib;
                             document.getElementById("ishaTime").innerHTML = isha;
-                }
-             
-        
+                            getPrayerTimes();
+                },5000)
+                }                
+        function startprogram() {
+            var div = document.getElementById("login");
+            var load = document.getElementById("loading");
+            div.style.transition = "opacity 1s ease-in-out";
+            div.style.opacity = 0;
+            load.style.transition = "opacity 1s ease-in-out";
+            load.style.opacity = 1;
+            setTimeout(function() {
+                load.style.transition = "opacity 1s ease-in-out";
+                load.style.opacity = 0;
+            },5000);
+            getPrayerTimes();
+        }
     </script>
-    
-    <script>
-      const prayTimes = new PrayerTimes.PrayerManager('MWL')
-      let lat = 43
-      let lng = -80
-      let times = prayTimes.getTimes(new Date(), [lat, lng], -5) // Get prayers times for "today" at lat: 43, long: -80 with -5 timezone
-      console.log('Sunrise : ', times.find(t => t.name === "sunrise"))
-      // OR
-      console.log('Sunrise : ', times[2])
-    </script> 
+
 </head>
 
 
@@ -376,7 +413,11 @@
 
 
     </div>
-
+    
+    <div class = "loading" id = "loading">
+        <div class = "load"></div>
+    </div>
+        
     <div class = "login" id = "login">
 
         <h1 id = "titlew"> welcome.</h1>
@@ -384,10 +425,12 @@
 			<input type="text" id="lat" placeholder="latitude"><br><br>
             <input type="text" id="long" placeholder="longitude"><br><br>
             <input type="text" id="time" placeholder="hours from UTC"><br><br>
-			<input type="button" id = "button" value="Submit" onclick="getPrayerTimes()">
+			<input type="button" id = "button" value="Submit" onclick="startprogram()">
         </form>
+    </div>
 
 
+    
 
 
     </div>
@@ -398,3 +441,4 @@
 
 
 </html>
+
